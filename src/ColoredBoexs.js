@@ -1,12 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-
-
+// ColoredBoxList.js
 import React, { useState, useEffect } from 'react';
 
-
-
-function App() {
+const ColoredBoxList = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -15,7 +10,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/currentGame');
+      const response = await fetch('https://api.example.com/data');
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -23,14 +18,13 @@ function App() {
     }
   };
 
-  const colors=["blue","orange","greenn","yellow"]
   return (
     <div>
       {data.map((item, index) => (
         <div
           key={index}
           style={{
-            backgroundColor: colors[index],
+            backgroundColor: item.color,
             padding: '20px',
             margin: '10px',
             color: 'white',
@@ -38,11 +32,11 @@ function App() {
             display: 'inline-block',
           }}
         >
-          <h2>{item}</h2>
+          <h2>{item.text}</h2>
         </div>
       ))}
     </div>
   );
-}
+};
 
-export default App;
+export default ColoredBoxList;

@@ -1,12 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-
-
+// ColoredBoxList.js
 import React, { useState, useEffect } from 'react';
 
-
-
-function App() {
+const ColoredBoxList = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -23,14 +18,14 @@ function App() {
     }
   };
 
-  const colors=["blue","orange","greenn","yellow"]
+  colors=["blue","orange","greenn","yellow"]
   return (
     <div>
       {data.map((item, index) => (
         <div
           key={index}
           style={{
-            backgroundColor: colors[index],
+            backgroundColor: color[index],
             padding: '20px',
             margin: '10px',
             color: 'white',
@@ -43,6 +38,6 @@ function App() {
       ))}
     </div>
   );
-}
+};
 
-export default App;
+export default ColoredBoxList;
