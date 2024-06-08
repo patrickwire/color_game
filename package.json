@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start:webapp": "cd my-vue-app; npm run dev",
+    "start:webapp": "cd app; npm run dev",
     "start:server": "node server/main.js"
   },
   "eslintConfig": {
