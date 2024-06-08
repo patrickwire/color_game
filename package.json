@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start:webapp": "cd my-vue-app; npm run dev",
-    "start:server": "node server/mian.js"
+    "start:server": "node server/main.js"
   },
   "eslintConfig": {
     "extends": [
