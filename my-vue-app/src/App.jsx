@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-
+const url="http://161.35.75.101:3000"
 
 function App() {
   const [data, setData] = useState([]);
@@ -62,7 +62,7 @@ const milliseconds = date.getMilliseconds();
 
 const fetchPlayerData = async () => {
     try {
-      const response = await fetch('http://161.35.75.101:3000/loadAllPlayerFiles');
+      const response = await fetch(url+'/loadAllPlayerFiles');
       const jsonData = await response.json();
     
       setDataPlayer(jsonData.sort((a,b)=>{
@@ -75,7 +75,7 @@ const fetchPlayerData = async () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://161.35.75.101:3000/current');
+      const response = await fetch(url+'/current');
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -113,7 +113,7 @@ if(dataPlayer.length>0){
   </thead>
   <tbody>{dataPlayer.sort((a,b)=>a.date-b.date).map((d,idx)=>{
     return  <ComparisonTable json1={dataPlayer} json2={data} playernumber={idx} />
-  })}</tbody></table><button style={{margin:30}} onClick={()=>{fetch("http://161.35.75.101:3000/newGame");
+  })}</tbody></table><button style={{margin:30}} onClick={()=>{fetch(url+"/newGame");
     setTimeout(()=>{window.location.reload();
     },500)
 
